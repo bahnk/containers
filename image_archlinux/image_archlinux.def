@@ -1,0 +1,66 @@
+
+Bootstrap: docker
+From: archlinux
+Stage: build
+
+%environment
+	
+%post
+
+	pacman -Sy
+
+	# required archlinux packages
+	pacman -S --noconfirm wget
+	pacman -S --noconfirm base-devel
+	pacman -S --noconfirm r
+	pacman -S --noconfirm gcc-fortran
+	pacman -S --noconfirm python
+	pacman -S --noconfirm python2
+	pacman -S --noconfirm python-pip
+	pacman -S --noconfirm python2-pip
+	pacman -S --noconfirm ipython
+	pacman -S --noconfirm ipython2
+	pacman -S --noconfirm perl
+	pacman -S --noconfirm java-environment
+	pacman -S --noconfirm ttf-dejavu
+	pacman -S --noconfirm luajit
+	pacman -S --noconfirm bzip2
+	pacman -S --noconfirm curl
+	pacman -S --noconfirm xz
+	pacman -S --noconfirm cython
+	pacman -S --noconfirm cython2
+	pacman -S --noconfirm git
+	pacman -S --noconfirm awk
+	pacman -S --noconfirm opencv
+	pacman -S --noconfirm nvidia-utils
+	pacman -S --noconfirm opencl-nvidia
+
+	# minimal python
+	pip install numpy
+	pip install scipy
+	pip install pandas
+	pip install xlrd
+	pip install matplotlib
+	pip install matplotlib-venn
+	pip install plotly
+	pip install seaborn
+	pip install statsmodels
+	pip install scikit-learn
+	pip install scikit-image
+	pip install jinja2
+	pip install biopython
+	pip install urllib3
+	pip install lxml
+
+%runscript
+	echo "Container was created $NOW"
+	echo "Arguments received: $*"
+	exec echo "$@"
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+	Version v0.0.1
+
+%help
+	This is a container used to analyse images.
+

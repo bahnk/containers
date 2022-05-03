@@ -1,0 +1,117 @@
+
+Bootstrap: docker
+From: archlinux
+Stage: build
+
+%post
+
+	pacman -Syu --noconfirm
+
+	# required archlinux packages
+	pacman -S --noconfirm base-devel
+	pacman -S --noconfirm r
+	pacman -S --noconfirm gcc-fortran
+
+	# install R packages
+
+	CRAN_PACKAGES=(
+		BH
+		BiocManager
+		devtools
+		dplyr
+		DT
+		forcats
+		ggplot2
+		jsonlite
+		kable
+		kableExtra
+		knitr
+		openxlsx
+		optparse
+		plyr
+		purrr
+		RColorBrewer
+		Rcpp
+		RcppArmadillo
+		readr
+		readxl
+		reshape
+		reshape2
+		Seurat
+		stringr
+		tibble
+		tidyr
+		tidyverse
+		UpSetR
+		VennDiagram
+	)
+
+	REPOSITORY="https://cran.ma.imperial.ac.uk"
+
+	#for CRAN_PACKAGE in ${CRAN_PACKAGES[@]}
+	#do
+	#	R -e "install.packages('$CRAN_PACKAGE', repo='$REPOSITORY')"
+	#done
+
+	CRAN_PACKAGES_STR=""
+	for i in "${!CRAN_PACKAGES[@]}"
+	do
+		if [[ $i == 0 ]]
+		then
+			CRAN_PACKAGES_STR+="\"${CRAN_PACKAGES[$i]}\""
+		else
+			CRAN_PACKAGES_STR+=",\"${CRAN_PACKAGES[$i]}\""
+		fi
+	done
+	R -e "install.packages(c($CRAN_PACKAGES_STR), repo='$REPOSITORY')"
+
+
+	#BIOCONDUCTOR_PACKAGES=(
+	#	BiocParallel
+	#	biomaRt
+	#	ComplexHeatmap
+	#	ChIPseeker
+	#	clusterProfiler
+	#	DESeq2
+	#	edgeR
+	#	ggtree
+	#	limma
+	#	org.Ce.eg.db
+	#	org.Dm.eg.db
+	#	org.Dr.eg.db
+	#	org.Gg.eg.db
+	#	org.Hs.eg.db
+	#	org.Mm.eg.db
+	#	org.Pf.eg.db
+	#	org.Sc.eg.db
+	#	org.Xl.eg.db
+	#	rtracklayer
+	#	SummarizeExperiment
+	#	tximport
+	#)
+
+	##R -e "BiocManager::install()"
+	##for BIOCONDUCTOR_PACKAGE in ${BIOCONDUCTOR_PACKAGES[@]}
+	##do
+	##	R -e "BiocManager::install('$BIOCONDUCTOR_PACKAGE')"
+	##done
+
+	#BIOCONDUCTOR_PACKAGES_STR=""
+	#for i in "${!BIOCONDUCTOR_PACKAGES[@]}"
+	#do
+	#	if [[ $i == 0 ]]
+	#	then
+	#		BIOCONDUCTOR_PACKAGES_STR+="\"${BIOCONDUCTOR_PACKAGES[$i]}\""
+	#	else
+	#		BIOCONDUCTOR_PACKAGES_STR+=",\"${BIOCONDUCTOR_PACKAGES[$i]}\""
+	#	fi
+	#done
+	#R -e "BiocManager::install(c($BIOCONDUCTOR_PACKAGES_STR), repo='$REPOSITORY')"
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+	Version v0.0.1
+
+%help
+	This is a container used to run R.
+

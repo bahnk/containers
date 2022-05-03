@@ -1,0 +1,5 @@
+
+sudo singularity build --tmpdir tmp rnaseq.sif rnaseq.def  1628,81s user 105,52s system 109% cpu 26:24,78 total
+cp -Rv rnaseq.* /camp/stp/babs/working/bahn/singularity/  0,01s user 7,64s system 0% cpu 21:02,58 total
+
+

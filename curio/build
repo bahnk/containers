@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sudo docker build --no-cache --tag curio:v1 .
+sudo docker image tag curio:v1 bahnk/curio:v1
+sudo docker login -u "bahnk" -p "" docker.io
+sudo docker push bahnk/curio:v1
+singularity pull curio.sif docker://bahnk/curio:v1
+

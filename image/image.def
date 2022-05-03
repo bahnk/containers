@@ -1,0 +1,28 @@
+Bootstrap: docker
+From: ubuntu:20.04
+Stage: build
+
+%environment
+	
+%post
+
+	apt-get update
+
+	DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" # because tzdata ask for location
+	apt-get install --yes tzdata
+	apt-get install --yes build-essential
+	apt-get install --yes g++
+	apt-get install --yes libopencv-dev
+
+%runscript
+	echo "Container was created $NOW"
+	echo "Arguments received: $*"
+	exec echo "$@"
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+	Version v0.0.1
+
+%help
+	This is a container used to analyse images.
+

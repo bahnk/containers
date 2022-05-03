@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sudo docker image ls
+sudo docker run -v $(pwd):/mnt -it 478aa0080b60 /bin/bash
+

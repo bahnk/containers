@@ -1,0 +1,26 @@
+
+Bootstrap: docker
+From: jjanzic/docker-python3-opencv
+Stage: build
+
+%post
+
+	apt-get update
+	apt-get install --yes libtiff-dev
+	apt-get install --yes libtiff-tools
+	apt-get install --yes libtiff-doc
+	apt-get install --yes libtiff-opengl
+
+%runscript
+	echo "Container was created $NOW"
+	echo "Arguments received: $*"
+	exec echo "$@"
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+	Singularity Version 3.6.4
+
+%help
+	This is a container used to analyse images with opencv.
+	Singularity Version 3.6.4
+

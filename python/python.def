@@ -1,0 +1,115 @@
+
+Bootstrap: docker
+From: archlinux
+Stage: build
+
+%setup
+	touch /file1
+	touch ${SINGULARITY_ROOTFS}/file2
+
+%environment
+	export LISTEN_PORT=12345
+	export LC_ALL=C
+
+%post
+	pacman -Sy
+	pacman -S --noconfirm base-devel
+	pacman -S --noconfirm inetutils
+	pacman -S --noconfirm r
+	pacman -S --noconfirm python
+	pacman -S --noconfirm python2
+	pacman -S --noconfirm python-pip
+	pacman -S --noconfirm python2-pip
+	pacman -S --noconfirm nodejs
+	pacman -S --noconfirm ipython
+	pacman -S --noconfirm ipython2
+	pacman -S --noconfirm jupyterlab
+	pacman -S --noconfirm jupyter-notebook
+	pacman -S --noconfirm gdal
+	pacman -S --noconfirm tk
+	pacman -S --noconfirm git
+	pacman -S --noconfirm libdatrie
+	pacman -S --noconfirm cython
+	pacman -S --noconfirm cmake
+
+	# datrie does not build with python 3.8, so need do that
+	pacman -S --noconfirm wget
+	mkdir /opt/datrie
+	wget \
+		https://github.com/pytries/datrie/archive/0.8.tar.gz \
+		-O /opt/datrie/0.8.tar.gz
+	cd /opt/datrie
+	tar zxvf 0.8.tar.gz
+	cd datrie-0.8
+	sed -i 's|../libdatrie/||g' src/cdatrie.pxd
+	sed -i 's|../libdatrie/||g' src/cdatrie.c
+	sed -i 's|../libdatrie/||g' src/datrie.c
+	./update_c.sh
+	python setup.py build
+	python setup.py install --skip-build
+	cd /
+
+
+	pip install numpy
+	pip install scipy
+	pip install pandas
+	pip install xlrd
+	pip install matplotlib
+	pip install matplotlib-venn
+	pip install plotly
+	pip install seaborn
+	pip install statsmodels
+	pip install scikit-learn
+	pip install scikit-image
+	pip install jinja2
+	pip install biopython
+	pip install snakemake
+	pip install urllib3
+	pip install lxml
+
+	pip install umap-learn
+	pip install python-louvain
+	pip install future
+	pip install tasklogger
+	pip install graphtools
+	pip install scprep
+	pip install magic-impute
+	pip install phate
+	pip install meld
+
+	pip install scvi
+
+	# scanpy dependencies, just to be sure
+	pip install anndata
+	pip install h5py
+	pip install tables
+	pip install tqdm
+	pip install importlib-metadata
+	pip install patsy
+	pip install networkx
+	pip install natsort
+	pip install joblib
+	pip install numba
+	pip install legacy-api-wrap
+	pip install setuptools-scm
+	pip install packaging
+	pip install bbknn
+	pip install leidenalg
+	pip install MulticoreTSNE
+	pip install scanpy
+
+	pip install tabulate
+
+%runscript
+	echo "Container was created $NOW"
+	echo "Arguments received: $*"
+	exec echo "$@"
+
+%labels
+	Author d@sylabs.io
+	Version v0.0.1
+
+%help
+	This is a demo container used to illustrate a def file that uses all
+	supported sections.
+

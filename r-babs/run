@@ -1,0 +1,16 @@
+#!/bin/sh
+
+python r-babs.py > r-babs.def
+
+if [[ ! -d tmp ]]
+then
+	mkdir -v tmp
+fi
+
+if [[ -f r-babs.sif ]]
+then
+	rm -v r-babs.sif
+fi
+
+sudo singularity build --tmpdir $PWD/tmp r-babs.sif r-babs.def
+

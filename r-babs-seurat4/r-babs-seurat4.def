@@ -41,6 +41,7 @@ Stage: build
 		RColorBrewer
 		Rcpp
 		RcppArmadillo
+		RMySQl
 		RSpectra
 		readr
 		readxl
@@ -160,7 +161,6 @@ Stage: build
 
 	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('jlmelville/uwot')"
 	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('satijalab/seurat', ref='release/4.0.0')"
-	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('ZJUFanLab/scCATCH')"
 
 %labels
 	Author nourdine.bah@crick.ac.uk

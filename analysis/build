@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sudo docker build --no-cache --tag bahnk/analysis:v1 .
+sudo docker build --tag bahnk/analysis:v1 .
+sudo docker login -u "bahnk" -p "" docker.io
+sudo docker push bahnk/analysis:v1
+

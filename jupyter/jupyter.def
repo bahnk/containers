@@ -1,0 +1,35 @@
+Bootstrap: docker
+From: jupyter/datascience-notebook
+Stage: build
+
+%post
+
+	pip install adjusttext
+	pip install anndata
+	pip install bbknn
+	pip install biopython
+	pip install jinja2
+	pip install leidenalg
+	pip install matplotlib-venn
+	pip install mygene
+	pip install networkx
+	pip install orca
+	pip install phate
+	pip install plotly
+	pip install psutil
+	pip install pyFFTW
+	pip install pynndescent
+	pip install python-louvain
+	pip install scanpy
+	pip install scvi-tools
+	pip install snakemake
+	pip install umap-learn
+	
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+
+%help
+	This is a container I use to run jupyter.
+	Singularity Version 3.6.4
+

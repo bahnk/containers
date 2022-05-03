@@ -1,0 +1,16 @@
+#!/bin/sh
+
+python jupyter.py > jupyter.def
+
+if [[ ! -d tmp ]]
+then
+	mkdir -v tmp
+fi
+
+if [[ -f jupyter.sif ]]
+then
+	rm -v jupyter.sif
+fi
+
+sudo singularity build --tmpdir $PWD/tmp jupyter.sif jupyter.def
+

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [[ ! -d tmp ]]
+then
+	mkdir -v tmp
+fi
+
+if [[ -f opencv.sif ]]
+then
+	rm -v opencv.sif
+fi
+
+sudo singularity build --tmpdir $PWD/tmp opencv.sif opencv.def
+

@@ -1,0 +1,11 @@
+Bootstrap: docker
+From: biagii/scmatch
+Stage: build
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+	singularity version 3.6.4
+
+%help
+	This is a container I use to run scMatch.
+

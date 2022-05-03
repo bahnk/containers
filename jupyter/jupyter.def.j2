@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: jupyter/datascience-notebook
+Stage: build
+
+%post
+
+	{% for package in pip_packages -%}
+	pip install {{ package }}
+	{% endfor %}
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+
+%help
+	This is a container I use to run jupyter.
+	Singularity Version 3.6.4
+

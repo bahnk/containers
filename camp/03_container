@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export SINGULARITY_TMPDIR=/home/nourdine/singularity/camp/tmp 
+sudo -E singularity build camp.sif docker-archive://camp.tar
+
+# quand "Error: You don't have enough free space in /var/cache/apt/archives/."
+#sudo docker rmi $(docker images -q)
+#sudo docker rm -v $(docker ps -qa)
+

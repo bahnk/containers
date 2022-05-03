@@ -1,0 +1,14 @@
+#!/bin/sh
+
+cp -v \
+	00_build \
+	01_write \
+	02_image \
+	03_copy \
+	allpackages.txt \
+	cotidianus.def \
+	cotidianus.sif \
+	python_packages.txt \
+	r_packages.txt \
+	/camp/stp/babs/working/bahn/singularity/cotidianus/
+

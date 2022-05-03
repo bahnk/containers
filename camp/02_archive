@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sudo docker ps -a
+sudo docker commit 3166c1b123af camp_v1
+sudo docker save ec7d56f403f9 -o camp.tar
+

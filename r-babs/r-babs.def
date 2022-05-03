@@ -1,0 +1,46 @@
+Bootstrap: docker
+From: r-base
+Stage: build
+
+%post
+
+	apt-get update
+
+	# for seurat
+	apt-get install --yes libssl-dev
+	apt-get install --yes libcurl4-openssl-dev
+	apt-get install --yes libxml2-dev
+	apt-get install --yes libpng-dev
+
+	# for rmarkdown
+	apt-get install --yes pandoc
+	apt-get install --yes ghostscript 
+	apt-get install --yes lmodern
+	apt-get install --yes pandoc-citeproc
+	apt-get install --yes qpdf
+	apt-get install --yes texinfo
+	apt-get install --yes texlive-fonts-extra
+	apt-get install --yes texlive-fonts-recommended
+	apt-get install --yes texlive-latex-extra
+	apt-get install --yes texlive-latex-recommended
+	apt-get install --yes texlive-luatex
+	apt-get install --yes texlive-plain-generic
+	apt-get install --yes texlive-science
+	apt-get install --yes texlive-xetex
+
+	R -e "install.packages(c('BH', 'BiocManager', 'DT', 'FNN', 'RANN', 'RColorBrewer', 'ROCR', 'RSpectra', 'Rcpp', 'RcppAnnoy', 'RcppArmadillo', 'RcppProgress', 'Rtsne', 'UpSetR', 'VennDiagram', 'abind', 'bookdown', 'circlize', 'deldir', 'devtools', 'dplyr', 'dqrng', 'fastmap', 'fitdistrplus', 'forcats', 'future', 'future.apply', 'ggplot2', 'ggridges', 'globals', 'goftest', 'hexbin', 'httpuv', 'ica', 'irlba', 'jsonlite', 'kable', 'kableExtra', 'knitr', 'leiden', 'lmtest', 'miniUI', 'openxlsx', 'optparse', 'pbapply', 'pheatmap', 'plotly', 'plyr', 'purrr', 'readr', 'readxl', 'remotes', 'reshape', 'reshape2', 'reticulate', 'rmarkdown', 'rsvd', 'sctransform', 'shiny', 'sourcetools', 'spatstat', 'spatstat.data', 'spatstat.utils', 'stringr', 'tensor', 'tibble', 'tidyr', 'tidyverse', 'zoo'), repo='https://cran.ma.imperial.ac.uk')"
+
+	R -e "BiocManager::install(c('AnnotationDbi', 'BiocParallel', 'ChIPseeker', 'ComplexHeatmap', 'DESeq2', 'DOSE', 'ReactomePA', 'SingleR', 'SummarizedExperiment', 'biomaRt', 'celldex', 'clusterProfiler', 'edgeR', 'ggtree', 'limma', 'monocle', 'org.Ce.eg.db', 'org.Dm.eg.db', 'org.Dr.eg.db', 'org.Gg.eg.db', 'org.Hs.eg.db', 'org.Mm.eg.db', 'org.Pf.plasmo.db', 'org.Sc.sgd.db', 'org.Xl.eg.db', 'rtracklayer', 'scRNAseq', 'slingshot', 'tximport'))"
+
+	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('jlmelville/uwot')"
+	R -e "devtools::install_version('spatstat', version='1.64-1', repos='https://cran.ma.imperial.ac.uk')" # bug with 2.0-1 version of spatstat
+	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('satijalab/seurat', ref='release/4.0.0', upgrade='never')"
+	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('ZJUFanLab/scCATCH', upgrade='never')" # bug with 2.0-1 version of spatstat
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+
+%help
+	This is a container we use to run R.
+	Singularity Version 3.6.4
+

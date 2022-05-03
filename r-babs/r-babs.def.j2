@@ -1,0 +1,46 @@
+Bootstrap: docker
+From: r-base
+Stage: build
+
+%post
+
+	apt-get update
+
+	# for seurat
+	apt-get install --yes libssl-dev
+	apt-get install --yes libcurl4-openssl-dev
+	apt-get install --yes libxml2-dev
+	apt-get install --yes libpng-dev
+
+	# for rmarkdown
+	apt-get install --yes pandoc
+	apt-get install --yes ghostscript 
+	apt-get install --yes lmodern
+	apt-get install --yes pandoc-citeproc
+	apt-get install --yes qpdf
+	apt-get install --yes texinfo
+	apt-get install --yes texlive-fonts-extra
+	apt-get install --yes texlive-fonts-recommended
+	apt-get install --yes texlive-latex-extra
+	apt-get install --yes texlive-latex-recommended
+	apt-get install --yes texlive-luatex
+	apt-get install --yes texlive-plain-generic
+	apt-get install --yes texlive-science
+	apt-get install --yes texlive-xetex
+
+	R -e "install.packages(c({{ cran }}), repo='https://cran.ma.imperial.ac.uk')"
+
+	R -e "BiocManager::install(c({{ bioc }}))"
+
+	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('jlmelville/uwot')"
+	R -e "devtools::install_version('spatstat', version='1.64-1', repos='https://cran.ma.imperial.ac.uk')" # bug with 2.0-1 version of spatstat
+	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('satijalab/seurat', ref='release/4.0.0', upgrade='never')"
+	R -e "INSTALL_opts=c('--no-help', '--no-html');remotes::install_github('ZJUFanLab/scCATCH', upgrade='never')" # bug with 2.0-1 version of spatstat
+
+%labels
+	Author nourdine.bah@crick.ac.uk
+
+%help
+	This is a container we use to run R.
+	Singularity Version 3.6.4
+

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+singularity pull selenium.sif docker://selenium/standalone-firefox

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo docker build --no-cache --tag bahnk/scvi:v1 .
+#sudo docker login -u "bahnk" docker.io
+#sudo docker push bahnk/scvi:v1
+
+#module load Singularity/3.6.4
+#singularity pull --disable-cache scvi.sif docker://bahnk/spacexr:v1
+

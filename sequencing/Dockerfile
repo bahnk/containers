@@ -47,3 +47,6 @@ RUN apt-get install --yes \
 	trimmomatic \
 	zlib1g
 
+RUN apt-get install --yes python3-pip
+RUN pip install umi_tools
+

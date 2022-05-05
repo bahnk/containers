@@ -71,7 +71,6 @@ RUN apt-get install --yes \
 	python3-nbsphinx
 
 RUN apt-get install --yes \
-	python3-oauth \
 	python3-oauth2client \
 	python3-oauthlib \
 	python3-urllib3
@@ -83,7 +82,6 @@ RUN apt-get install --yes python3-pip
 RUN pip install upsetplot
 RUN pip install umap-learn
 RUN pip install louvain
-RUN pip install leiden
 RUN pip install leidenalg
 RUN pip install anndata
 RUN pip install scanpy

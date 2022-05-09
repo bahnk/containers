@@ -211,4 +211,7 @@ RUN pip install anndata
 RUN pip install scanpy
 RUN pip install jupyter-book
 RUN pip install pyairtable
+RUN pip install scvi-tools
+
+RUN pip install -U jupyterlab
 

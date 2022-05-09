@@ -20,7 +20,6 @@ RUN apt-get install --yes snakemake
 ## PYTHON
 
 RUN apt-get install --yes \
-	python3-louvain \
 	python3-networkx \
 	python3-numpy \
 	python3-pandas \
@@ -32,8 +31,7 @@ RUN apt-get install --yes \
 	python3-simpy3 \
 	python3-sklearn \
 	python3-sklearn-lib \
-	python3-sklearn-pandas \
-	python3.9-numpy
+	python3-sklearn-pandas
 
 RUN apt-get install --yes \
   python3-jinja-vanish \
@@ -73,7 +71,6 @@ RUN apt-get install --yes \
 	python3-nbsphinx
 
 RUN apt-get install --yes \
-	python3-oauth \
 	python3-oauth2client \
 	python3-oauthlib \
 	python3-urllib3
@@ -84,10 +81,11 @@ RUN apt-get install --yes python3-yaml
 RUN apt-get install --yes python3-pip
 RUN pip install upsetplot
 RUN pip install umap-learn
-#RUN pip install leiden
-#RUN pip install leidenalg
+RUN pip install louvain
+RUN pip install leidenalg
 RUN pip install anndata
 RUN pip install scanpy
+RUN pip install scvi-tools
 RUN pip install jupyter-book
 
 ###############################################################################

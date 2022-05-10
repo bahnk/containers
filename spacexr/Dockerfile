@@ -252,3 +252,5 @@ RUN R -e "devtools::install_github('dmcable/spacexr', build_vignettes=FALSE)"
 
 RUN pip install -U jupyterlab
 
+RUN pip install bbknn
+

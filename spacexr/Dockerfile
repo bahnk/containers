@@ -253,4 +253,8 @@ RUN R -e "devtools::install_github('dmcable/spacexr', build_vignettes=FALSE)"
 RUN pip install -U jupyterlab
 
 RUN pip install bbknn
+#RUN pip install harmonypy
+RUN pip install git+https://github.com/slowkow/harmonypy.git
+RUN pip install pymde
+RUN pip install scikit-misc
 

@@ -90,3 +90,5 @@ RUN pip install jupyter-book
 
 RUN pip install -U jupyterlab
 
+RUN pip install torch==1.8.0
+

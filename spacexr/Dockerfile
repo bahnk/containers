@@ -258,3 +258,12 @@ RUN pip install git+https://github.com/slowkow/harmonypy.git
 RUN pip install pymde
 RUN pip install scikit-misc
 
+RUN apt-get install --yes \
+	nvidia-driver-510 \
+	nvidia-dkms-510 \
+	nvidia-cuda-dev \
+	nvidia-cuda-gdb \
+	nvidia-cuda-toolkit \
+	nvidia-cuda-toolkit-doc \
+	nvidia-cuda-toolkit-gcc
+

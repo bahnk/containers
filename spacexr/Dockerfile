@@ -258,12 +258,8 @@ RUN pip install git+https://github.com/slowkow/harmonypy.git
 RUN pip install pymde
 RUN pip install scikit-misc
 
-RUN apt-get install --yes \
-	nvidia-driver-510 \
-	nvidia-dkms-510 \
-	nvidia-cuda-dev \
-	nvidia-cuda-gdb \
-	nvidia-cuda-toolkit \
-	nvidia-cuda-toolkit-doc \
-	nvidia-cuda-toolkit-gcc
+RUN apt-get install --yes nvidia-driver-470 nvidia-dkms-470
+
+RUN pip install scvi-colab
+RUN pip install git+https://github.com/yoseflab/destvi_utils.git@main
 

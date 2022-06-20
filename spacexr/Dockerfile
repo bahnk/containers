@@ -263,3 +263,15 @@ RUN apt-get install --yes nvidia-driver-470 nvidia-dkms-470
 RUN pip install scvi-colab
 RUN pip install git+https://github.com/yoseflab/destvi_utils.git@main
 
+# AnnData <-> SeuratObject conversion
+RUN R -e "remotes::install_github('mojaveazure/seurat-disk')"
+RUN R -e "BiocManager::install('scater')"
+RUN R -e "BiocManager::install('LoomExperiment')"
+RUN R -e "devtools::install_github('cellgeni/sceasy')"
+
+# for the FindSpatiallyVariableFeatures function in Seurat
+RUN apt-get install --yes r-cran-ape
+RUN R -e "install.packages('Rfast2', repo='https://cran.ma.imperial.ac.uk')"
+
+RUN pip install plotly
+

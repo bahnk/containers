@@ -275,3 +275,6 @@ RUN R -e "install.packages('Rfast2', repo='https://cran.ma.imperial.ac.uk')"
 
 RUN pip install plotly
 
+RUN apt-get install --yes xvfb xauth xfonts-base
+RUN apt-get install --yes r-cran-cairo
+

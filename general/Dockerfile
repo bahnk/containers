@@ -1,5 +1,5 @@
 
-FROM ubuntu:22.04
+FROM ubuntu:22.10
 
 RUN apt-get update
 RUN apt-get --yes upgrade
@@ -15,6 +15,7 @@ RUN apt-get install --yes vim
 RUN apt-get install --yes "pandoc*"
 RUN apt-get install --yes texlive
 RUN apt-get install --yes snakemake
+
 
 ###############################################################################
 ## PYTHON
@@ -94,7 +95,6 @@ RUN pip install jupyter-book
 RUN apt-get install --yes \
 	r-base \
 	r-base-core \
-	r-base-core-dbg \
 	r-base-dev \
 	r-base-html \
 	r-base-latex
@@ -118,7 +118,6 @@ RUN apt-get install --yes \
 	r-cran-plyr \
 	r-cran-purrr \
 	r-cran-purrrlyr \
-	r-cran-purrrogress \
 	r-cran-r.utils \
 	r-cran-rcurl \
 	r-cran-readr \
@@ -271,6 +270,7 @@ RUN R -e "devtools::install_github('cellgeni/sceasy')"
 
 # for the FindSpatiallyVariableFeatures function in Seurat
 RUN apt-get install --yes r-cran-ape
+RUN apt-get install --yes r-cran-rcppgsl
 RUN R -e "install.packages('Rfast2', repo='https://cran.ma.imperial.ac.uk')"
 
 RUN pip install plotly
@@ -278,7 +278,19 @@ RUN pip install plotly
 RUN apt-get install --yes xvfb xauth xfonts-base
 RUN apt-get install --yes r-cran-cairo
 
+RUN pip install torchtext
+RUN pip install spacy
+
+RUN pip install kaleido # export image with plotly
+
+RUN pip install ipywidgets
+RUN apt-get install --yes nodejs npm
+RUN jupyter labextension install jupyterlab-plotly
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget
+
+RUN pip install torchdata
+
 RUN pip install --upgrade jupyterlab-vim
 
-RUN R -e "BiocManager::install('clusterProfiler')"
+RUN apt-get install --yes python3-sympy
 

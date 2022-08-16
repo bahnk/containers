@@ -311,5 +311,17 @@ RUN pip install --upgrade pip
 RUN pip install "jax[cuda11_cudnn82]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
 # install CuPy
+# from nvidia repo
+RUN apt-get install --yes libcudart11.0
+RUN apt-get install --yes libcusparse11
+RUN apt-get install libnccl2=2.13.4-1+cuda11.7
+RUN apt-get install libnccl-dev=2.13.4-1+cuda11.7
+RUN pip install cutensor
+RUN pip install optuna
 RUN pip install cupy-cuda11x -f https://pip.cupy.dev/aarch64
+RUN apt-get install --yes libcublas11
+RUN apt-get install --yes libcufft10
+RUN apt-get install --yes libcurand10
+RUN apt-get install --yes libnvrtc11.2
+RUN apt-get install --yes libcusolver11
 

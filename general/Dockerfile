@@ -294,3 +294,22 @@ RUN pip install --upgrade jupyterlab-vim
 
 RUN apt-get install --yes python3-sympy
 
+# install cudnn
+RUN apt-get install --yes wget
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin -O /etc/apt/preferences.d/cuda-repository-pin-600
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+RUN apt-get update
+RUN apt-get install --yes software-properties-common
+RUN add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /"
+RUN apt-get update
+RUN apt-get install libcudnn8=8.5.0.*-1+cuda11.7
+RUN apt-get install libcudnn8-dev=8.5.0.*-1+cuda11.7
+
+# install jax
+RUN pip install --upgrade pip
+# Installs the wheel compatible with Cuda >= 11.4 and cudnn >= 8.2
+RUN pip install "jax[cuda11_cudnn82]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+
+# install CuPy
+RUN pip install cupy-cuda11x -f https://pip.cupy.dev/aarch64
+

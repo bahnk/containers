@@ -294,34 +294,50 @@ RUN pip install --upgrade jupyterlab-vim
 
 RUN apt-get install --yes python3-sympy
 
-# install cudnn
-RUN apt-get install --yes wget
-RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin -O /etc/apt/preferences.d/cuda-repository-pin-600
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
 RUN apt-get update
 RUN apt-get install --yes software-properties-common
-RUN add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /"
+RUN apt-get install --yes wget
+
+# cuda 11.4
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin -O /etc/apt/preferences.d/cuda-repository-pin-600
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
+RUN add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
 RUN apt-get update
-RUN apt-get install libcudnn8=8.5.0.*-1+cuda11.7
-RUN apt-get install libcudnn8-dev=8.5.0.*-1+cuda11.7
+RUN apt remove nvidia-kernel-common
+RUN apt-get -y install cuda
 
-# install jax
-RUN pip install --upgrade pip
-# Installs the wheel compatible with Cuda >= 11.4 and cudnn >= 8.2
-RUN pip install "jax[cuda11_cudnn82]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
-# install CuPy
-# from nvidia repo
-RUN apt-get install --yes libcudart11.0
-RUN apt-get install --yes libcusparse11
-RUN apt-get install libnccl2=2.13.4-1+cuda11.7
-RUN apt-get install libnccl-dev=2.13.4-1+cuda11.7
-RUN pip install cutensor
-RUN pip install optuna
-RUN pip install cupy-cuda11x -f https://pip.cupy.dev/aarch64
-RUN apt-get install --yes libcublas11
-RUN apt-get install --yes libcufft10
-RUN apt-get install --yes libcurand10
-RUN apt-get install --yes libnvrtc11.2
-RUN apt-get install --yes libcusolver11
+## install cudnn
+#RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin -O /etc/apt/preferences.d/cuda-repository-pin-600
+#RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+#RUN apt-get update
+#RUN apt-get install --yes software-properties-common
+#RUN add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /"
+#RUN apt-get update
+#RUN apt-get install libcudnn8=8.5.0.*-1+cuda11.7
+#RUN apt-get install libcudnn8-dev=8.5.0.*-1+cuda11.7
+#
+## install jax
+#RUN pip install --upgrade pip
+## Installs the wheel compatible with Cuda >= 11.4 and cudnn >= 8.2
+#RUN pip install "jax[cuda11_cudnn82]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+#
+## install CuPy
+## from nvidia repo
+#RUN apt-get install --yes libcudart11.0
+#RUN apt-get install --yes libcusparse11
+#RUN apt-get install libnccl2=2.13.4-1+cuda11.7
+#RUN apt-get install libnccl-dev=2.13.4-1+cuda11.7
+#RUN pip install cutensor
+#RUN pip install optuna
+#RUN pip install cupy-cuda11x -f https://pip.cupy.dev/aarch64
+#RUN apt-get install --yes libcublas11
+#RUN apt-get install --yes libcufft10
+#RUN apt-get install --yes libcurand10
+#RUN apt-get install --yes libnvrtc11.2
+#RUN apt-get install --yes libcusolver11
 
+# apparently jax needs ptxas
+#RUN apt-get install --yes nvidia-cuda-dev=11.4.1-1
+#RUN apt-get install --yes nvidia-cuda-toolkit=11.4.1

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo docker build --no-cache --tag bahnk/ffpegpu:v1 .
+sudo docker login -u "bahnk" docker.io
+sudo docker push bahnk/ffpegpu:v1
+
+module load Singularity/3.6.4
+singularity pull --disable-cache ffpegpu.sif docker://bahnk/ffpegpu:v1
+

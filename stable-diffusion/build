@@ -1,0 +1,12 @@
+#!/bin/sh
+
+wget https://raw.githubusercontent.com/CompVis/stable-diffusion/main/environment.yaml
+wget https://raw.githubusercontent.com/CompVis/stable-diffusion/main/setup.py
+
+sudo docker build --no-cache --tag bahnk/stable-diffusion:v1 .
+sudo docker login -u "bahnk" docker.io
+sudo docker push bahnk/stable-diffusion:v1
+
+module load Singularity/3.6.4
+singularity pull --disable-cache stable-diffusion.sif docker://bahnk/stable-diffusion:v1
+

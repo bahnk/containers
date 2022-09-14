@@ -342,3 +342,6 @@ RUN apt-get -y install cuda
 #RUN apt-get install --yes nvidia-cuda-dev=11.4.1-1
 #RUN apt-get install --yes nvidia-cuda-toolkit=11.4.1
 
+RUN apt-get install --yes python3-biopython
+RUN pip install bcbio-gff
+

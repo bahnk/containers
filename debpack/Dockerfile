@@ -16,3 +16,5 @@ RUN apt-get install --yes wget
 RUN apt-get install --yes devscripts
 RUN apt-get install --yes dh-make
 
+RUN apt-get install --yes rsync
+

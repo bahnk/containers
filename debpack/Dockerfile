@@ -20,3 +20,5 @@ RUN apt-get install --yes rsync
 
 RUN apt-get install --yes libseqan2-dev libseqan3-dev
 
+RUN apt-get install --yes apt-src
+

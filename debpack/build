@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sudo docker build --no-cache --tag bahnk/debpack:v1 .
+sudo docker image tag debpack:v1 bahnk/debpack:v2
+sudo docker login -u "bahnk" docker.io
+sudo docker push bahnk/debpack:v1
+
+module load Singularity/3.6.4
+singularity pull --disable-cache debpack.sif docker://bahnk/debpack:v1
+

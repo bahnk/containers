@@ -14,5 +14,5 @@ RUN apt-get install --yes vim
 RUN apt-get install --yes wget
 
 RUN apt-get install --yes devscripts
-RUN apt-get install --yes dh_make
+RUN apt-get install --yes dh-make
 

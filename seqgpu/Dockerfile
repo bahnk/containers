@@ -53,7 +53,7 @@ RUN apt-get install libnccl2=2.11.4-1+cuda11.4
 RUN apt-get install libnccl-dev=2.11.4-1+cuda11.4
 
 # opencl
-RUN apt-get install opencl-c-headers ocl-icd-opencl-dev
+RUN apt-get install --yes opencl-c-headers ocl-icd-opencl-dev
 
 ###############################################################################
 ## PYTHON

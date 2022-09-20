@@ -29,7 +29,6 @@ RUN apt-get install --yes \
 	libseqan2-dev \
 	libseqan3-dev \
 	libarmadillo-dev \
-	libarmadillo10 \
 	libboost-all-dev \
 	multiqc \
 	picard \

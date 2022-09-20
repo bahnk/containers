@@ -113,21 +113,6 @@ RUN pip install jupyter-book
 RUN pip install -U jupyterlab
 RUN pip install kaleido # export image with plotly
 
-RUN pip install upsetplot
-
-# single-cell
-RUN pip install umap-learn
-RUN pip install louvain
-RUN pip install leidenalg
-RUN pip install scanpy
-RUN pip install scvi-tools
-RUN pip install scvi-colab
-RUN pip install anndata
-RUN pip install bbknn
-#RUN pip install harmonypy
-RUN apt-get install --yes git
-RUN pip install git+https://github.com/slowkow/harmonypy.git
-RUN pip install pymde
 RUN pip install scikit-misc
 
 # install jax

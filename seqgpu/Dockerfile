@@ -142,3 +142,8 @@ RUN pip install cupy-cuda11x -f https://pip.cupy.dev/aarch64
 
 RUN pip install numba
 
+# hamming-matching
+RUN apt-get install --yes git
+RUN git clone https://github.com/bahnk/hamming-matching /tmp/hamming-matching
+RUN dpkg -i /tmp/hamming-matching/pkg/deb/hamming-matching_1.0-1_amd64.deb
+

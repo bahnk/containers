@@ -116,7 +116,6 @@ RUN pip install kaleido # export image with plotly
 RUN pip install scikit-misc
 
 # install jax
-RUN pip install --upgrade pip
 # Installs the wheel compatible with Cuda >= 11.4 and cudnn >= 8.2
 RUN pip install "jax[cuda11_cudnn82]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 

@@ -10,42 +10,24 @@ RUN apt-get install --yes tzdata
 
 RUN apt-get install --yes less
 
-RUN apt-get install --yes \
-	bowtie \
-	bowtie-examples \
-	bowtie2 \
-	bowtie2-examples \
-	bwa \
-	clustalo \
-	clustalw \
-	clustalx \
-	cutadapt \
-	fastqc \
-	igv \
-	kallisto \
-	kallisto-examples \
-	libpicard-java \
-	libpicard-java-doc \
-	libseqan2-dev \
-	libseqan3-dev \
-	libarmadillo-dev \
-	libboost-all-dev \
-	multiqc \
-	picard \
-	picard-tools \
-	python-htseq \
-	python3-cutadapt \
-	python3-htseq \
-	rna-star \
-	rsem \
-	salmon \
-	samtools \
-	seqan-apps \
-	seqan3-doc \
-	seqtk \
-	trimmomatic \
-	zlib1g \
-	bbmap
+RUN apt-get install --yes bowtie bowtie-examples
+RUN apt-get install --yes bwa
+RUN apt-get install --yes clustalo clustalw clustalx
+RUN apt-get install --yes kallisto
+RUN apt-get install --yes salmon
+RUN apt-get install --yes fastqc multiqc
+RUN apt-get install --yes igv
+RUN apt-get install --yes kallisto kallisto-examples
+RUN apt-get install --yes libarmadillo-dev libboost-all-dev
+RUN apt-get install --yes picard
+RUN apt-get install --yes picard-tools
+RUN apt-get install --yes libpicard-java
+RUN apt-get install --yes libpicard-java-doc
+RUN apt-get install --yes libseqan2-dev libseqan3-dev seqan-apps seqan3-doc
+RUN apt-get install --yes cutadapt python3-cutadapt trimmomatic
+RUN apt-get install --yes rna-star rsem samtools seqtk bbmap python-htseq python3-htseq
+RUN apt-get install --yes zlib1g
+
 
 RUN apt-get install --yes python3-pip
 RUN pip install umi_tools

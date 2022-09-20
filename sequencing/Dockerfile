@@ -32,3 +32,8 @@ RUN apt-get install --yes zlib1g
 RUN apt-get install --yes python3-pip
 RUN pip install umi_tools
 
+# for slideseq
+RUN apt-get install --yes git
+RUN git clone https://github.com/bahnk/slideseq-tools /tmp/slideseq-tools
+RUN dpkg -i /tmp/slideseq-tools/pkg/deb/slideseq-tools_1.0-1_amd64.deb
+

@@ -344,7 +344,5 @@ RUN apt-get -y install cuda
 
 RUN apt-get install --yes python3-biopython
 RUN pip install bcbio-gff
-
-RUN pip install wheel
-RUN pip install fa2
+RUN pip install gffutils
 

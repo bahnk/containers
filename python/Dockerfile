@@ -209,6 +209,8 @@ RUN pip install leiden
 RUN pip install leidenalg
 RUN pip install anndata
 RUN pip install scanpy
+RUN pip install wheel
+RUN pip install fa2
 RUN pip install jupyter-book
 RUN pip install pyairtable
 RUN pip install scvi-tools

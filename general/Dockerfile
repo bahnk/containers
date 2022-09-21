@@ -305,6 +305,8 @@ RUN add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/r
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
 RUN apt-get update
 RUN apt remove nvidia-kernel-common
+RUN apt remove libnvidia-extra
+RUN apt remove libnvidia-gl
 RUN apt-get -y install cuda
 
 

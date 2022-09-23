@@ -304,10 +304,11 @@ RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/
 RUN add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
 RUN apt-get update
-RUN apt remove nvidia-kernel-common
-RUN apt remove libnvidia-extra
-RUN apt remove libnvidia-gl
-RUN apt-get -y install cuda
+RUN apt remove --yes nvidia-kernel-common
+#RUN apt remove --yes libnvidia-extra
+#RUN apt remove --yes libnvidia-gl
+RUN apt remove --yes libnvidia-extra-470 libnvidia-extra-515 libnvidia-gl-470 libnvidia-gl-515
+RUN apt-get --yes --allow-downgrades install cuda
 
 
 ## install cudnn

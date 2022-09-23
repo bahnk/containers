@@ -16,6 +16,7 @@ RUN apt-get install --yes zlib1g zlib1g-dev
 RUN wget https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz -O STAR-2.5.2a.tar.gz
 RUN tar -xzf STAR-2.5.2a.tar.gz
 RUN cd STAR-2.5.2a/source && make
+RUN ls STAR-2.5.2a/source
 RUN mv -v STAR-2.5.2a/source/{STAR,STARlong} usr/bin
 RUN cd -
 

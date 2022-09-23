@@ -10,11 +10,11 @@ RUN apt-get install --yes tzdata
 
 RUN apt-get install --yes less
 RUN apt-get install --yes wget
+RUN apt-get install --yes build-essential
 
 RUN wget https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz -O /STAR-2.5.2a.tar.gz
 RUN cd /
 RUN tar -xzf STAR-2.5.2a.tar.gz
-RUN cd STAR-2.5.2a/
 RUN cd STAR-2.5.2a/source
 RUN make STAR
 RUN mv STAR STARlong /usr/bin

@@ -13,12 +13,8 @@ RUN apt-get install --yes wget
 RUN apt-get install --yes build-essential
 
 RUN wget https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz -O /STAR-2.5.2a.tar.gz
-RUN cd /
-RUN tar -xzf STAR-2.5.2a.tar.gz
-RUN ls STAR-2.5.2a/source
-RUN cd STAR-2.5.2a/source
-RUN ls
-RUN make STAR
-RUN mv STAR STARlong /usr/bin
+RUN tar -xzf /STAR-2.5.2a.tar.gz
+RUN cd STAR-2.5.2a/source && make
+RUN mv -v STAR-2.5.2a/source/{STAR,STARlong} /usr/bin
 RUN cd -
 

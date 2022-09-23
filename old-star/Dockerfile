@@ -9,6 +9,7 @@ ENV TZ=Europe/London
 RUN apt-get install --yes tzdata
 
 RUN apt-get install --yes less
+RUN apt-get install --yes wget
 
 RUN wget https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz -O /STAR-2.5.2a.tar.gz
 RUN cd /

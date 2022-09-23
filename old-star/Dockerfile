@@ -17,5 +17,4 @@ RUN wget https://github.com/alexdobin/STAR/archive/2.5.2a.tar.gz -O STAR-2.5.2a.
 RUN tar -xzf STAR-2.5.2a.tar.gz
 RUN cd STAR-2.5.2a/source && make
 RUN mv -v STAR-2.5.2a/source/STAR usr/bin
-RUN cd -
 

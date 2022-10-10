@@ -9,6 +9,7 @@ ENV TZ=Europe/London
 RUN apt-get install --yes tzdata
 
 RUN apt-get install --yes less
+RUN apt-get install --yes wget
 
 RUN apt-get install --yes bowtie bowtie-examples
 RUN apt-get install --yes bwa
@@ -36,6 +37,4 @@ RUN pip install umi_tools
 RUN apt-get install --yes git
 RUN git clone https://github.com/bahnk/slideseq-tools /tmp/slideseq-tools
 RUN dpkg -i /tmp/slideseq-tools/pkg/deb/slideseq-tools_1.0-1_amd64.deb
-
-RUN apt-get install --yes wget
 

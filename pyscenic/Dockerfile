@@ -92,7 +92,7 @@ RUN pip install scvi-colab
 
 RUN pip install ipywidgets
 
-RUN apt-get install --yes nodejs
+RUN apt-get install --yes nodejs npm
 RUN jupyter labextension install jupyterlab-plotly
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget
 

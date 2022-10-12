@@ -81,6 +81,8 @@ RUN pip install jupyter-book
 
 RUN pip install -U jupyterlab
 
+RUN apt-get install --yes git
+
 RUN pip install bbknn
 RUN pip install git+https://github.com/slowkow/harmonypy.git
 RUN pip install pymde

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sudo docker build --no-cache --tag bahnk/pyscenic:v1 .
+sudo docker image tag pyscenic:v1 bahnk/pyscenic:v1
+sudo docker login -u "bahnk" docker.io
+sudo docker push bahnk/pyscenic:v1
+
+module load Singularity/3.6.4
+singularity pull --disable-cache pyscenic.sif docker://bahnk/pyscenic:v1
+

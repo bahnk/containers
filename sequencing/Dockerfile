@@ -38,3 +38,5 @@ RUN apt-get install --yes git
 RUN git clone https://github.com/bahnk/slideseq-tools /tmp/slideseq-tools
 RUN dpkg -i /tmp/slideseq-tools/pkg/deb/slideseq-tools_1.0-1_amd64.deb
 
+RUN apt-get install --yes bowtie2 bowtie2-examples
+

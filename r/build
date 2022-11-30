@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo docker build --no-cache --tag bahnk/r:v1 v1
+sudo docker build --no-cache --tag bahnk/r:v1 --file v1 .
 sudo docker login -u "bahnk" docker.io
 sudo docker push bahnk/r:v1
 

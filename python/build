@@ -1,7 +1,8 @@
 #!/bin/sh
 
-sudo docker build --tag bahnk/python:v2 .
-sudo docker build --no-cache --tag bahnk/python:v2 .
+sudo docker build --no-cache --tag bahnk/python:v3 --file v3 .
+sudo docker image tag bahk/python:v3 bahnk/python:v3
 sudo docker login -u "bahnk" -p "" docker.io
-sudo docker push bahnk/python:v2
-singularity pull python.sif docker://bahnk/python:v2
+sudo docker push bahnk/python:v3
+singularity pull python.sif docker://bahnk/python:v3
+

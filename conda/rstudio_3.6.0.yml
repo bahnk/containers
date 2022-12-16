@@ -1,0 +1,42 @@
+
+name: rstudio_3.6.0
+
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+
+dependencies:
+    - r-base=3.6.0
+    - rstudio
+    - udunits2
+    - umap-learn
+    - gdal
+    - louvain
+    
+    # installation dependencies for MAGIC and PHATE
+    - numpy
+    - pandas
+    - scipy
+    - matplotlib
+    - scikit-learn
+    - future
+    - tasklogger
+    - graphtools
+    - scprep
+
+    - pip:
+        - git+git://github.com/KrishnaswamyLab/MAGIC.git#subdirectory=python
+        - git+git://github.com/KrishnaswamyLab/PHATE.git#subdirectory=Python
+
+# we need to change the activation script 
+# /camp/stp/babs/working/software/anaconda/envs/rstudio_3.6.0/etc/conda/activate.d/activate-r-base.sh
+# for:
+# export RSTUDIO_WHICH_R="/camp/apps/misc/stp/babs/manual/software/r/R-3.6.0-foss-2016b/bin/R"
+
+# we need to add the python path so it can find umap
+# export PYTHONPATH="/camp/stp/babs/working/software/anaconda/envs/rstudio_3.6.0/lib/python3.7/site-packages"
+
+# before running rstudio, don't forget to:
+#module load R/3.6.0-foss-2016b-BABS
+

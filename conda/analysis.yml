@@ -1,0 +1,28 @@
+name: analysis
+
+channels:
+    - anaconda
+    - conda-forge
+    - bioconda
+    - r
+    - kapabix
+    - hcc
+
+dependencies:
+
+    - conda-forge::python=3.7
+
+    - conda-forge::numpy
+    - conda-forge::scipy
+    - conda-forge::pandas
+    - conda-forge::biopython
+    - conda-forge::urllib3
+    - conda-forge::ipython
+    - conda-forge::scikit-learn
+    - conda-forge::scikit-image
+    - conda-forge::statsmodels
+    - conda-forge::matplotlib
+    - conda-forge::umap-learn
+    - conda-forge::seaborn
+    - conda-forge::lxml
+

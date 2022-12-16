@@ -1,0 +1,9 @@
+name: aspera
+
+channels:
+ - HCC
+
+dependencies:
+
+ - HCC::aspera-cli
+ 

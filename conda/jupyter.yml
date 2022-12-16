@@ -1,0 +1,38 @@
+name: jupyter
+
+channels:
+ - anaconda
+ - conda-forge
+ - bioconda
+ - r
+
+dependencies:
+
+ - python=3.7
+ 
+ - numpy
+ - scipy
+ - pandas
+ - xlrd # for excel import in pandas
+ 
+ - matplotlib
+ - matplotlib-venn
+ - plotly
+ - seaborn
+ 
+ - scikit-learn
+ - scikit-image
+ - statsmodels
+ 
+ - jinja2
+ 
+ - snakemake
+ 
+ - jupyter
+ 
+ - nodejs
+ 
+ - biopython
+ - urllib3
+ - lxml
+

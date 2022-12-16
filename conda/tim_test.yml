@@ -1,0 +1,8 @@
+name: tim_test
+
+channels:
+   - bioconda
+
+dependencies:
+   - bioconda::hisat2=2.1.0
+

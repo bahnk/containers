@@ -1,0 +1,16 @@
+name: javabridge_test
+
+channels:
+   - anaconda
+   - conda-forge
+   - bioconda
+   - cyclus
+
+dependencies:
+   - cyclus::java-jdk=8.45.14
+   - cyclus::java-jre=8.45.14
+   - conda-forge::numpy=1.16.3
+   - pip:
+      - git+https://github.com/LeeKamentsky/python-javabridge.git@1.0.15
+
+      #- javabridge==1.0.15 # module load Java/1.9.0.4

@@ -1,0 +1,10 @@
+name: rseqc
+
+channels:
+   - anaconda
+   - bioconda
+
+dependencies:
+   - anaconda::python=2.7
+   - bioconda::rseqc=2.6.4
+

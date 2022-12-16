@@ -1,0 +1,27 @@
+
+name: project_006
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.6
+  - bioconda::mageck
+  - bioconda::mageck-vispr
+  - bioconda::cutadapt
+  - conda-forge::ipython
+  - conda-forge::numpy
+  - conda-forge::scipy
+  - conda-forge::pandas
+  - conda-forge::xlrd # for excel import in pandas
+  - conda-forge::matplotlib
+  - conda-forge::matplotlib-venn
+  - conda-forge::plotly
+  - conda-forge::seaborn
+  - conda-forge::scikit-learn
+  - conda-forge::statsmodels
+  - conda-forge::jinja2
+  - conda-forge::jupyter
+  - conda-forge::biopython
+

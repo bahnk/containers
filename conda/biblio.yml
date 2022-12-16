@@ -1,0 +1,34 @@
+
+name: biblio
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.6
+
+  - conda-forge::poppler
+  - conda-forge::pypdf2
+
+  - conda-forge::numpy
+  - conda-forge::scipy
+  - conda-forge::pandas
+  - conda-forge::xlrd # for excel import in pandas
+  - conda-forge::matplotlib
+  - conda-forge::matplotlib-venn
+  - conda-forge::plotly
+  - conda-forge::seaborn
+  - conda-forge::scikit-learn
+  - conda-forge::statsmodels
+  - conda-forge::jinja2
+  - conda-forge::jupyter
+  - conda-forge::ipython
+
+  - conda-forge::pkg-config
+  - conda-forge::gxx_linux-64
+  - conda-forge::gxx_impl_linux-64
+  - conda-forge::gcc_linux-64
+  - conda-forge::gcc_impl_linux-64
+  - conda-forge::gdb
+

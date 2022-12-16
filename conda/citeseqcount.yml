@@ -1,0 +1,19 @@
+name: citeseqcount
+
+channels:
+   - conda-forge
+   - bioconda
+   - guillaumecharbonnier
+
+dependencies:
+
+   - conda-forge::numpy
+   - conda-forge::scipy
+   - conda-forge::pandas
+     #- conda-forge::multiprocess
+     #- conda-forge::pytest
+     #- conda-forge::pytest-dependency
+   - conda-forge::pybktree
+   - bioconda::umi_tools
+   - guillaumecharbonnier::cite-seq-count
+

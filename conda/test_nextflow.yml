@@ -1,0 +1,9 @@
+name: test_nextflow
+
+channels:
+   - bioconda
+
+dependencies:
+   - bioconda::nextflow=19.04.1
+
+

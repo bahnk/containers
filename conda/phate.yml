@@ -1,0 +1,24 @@
+name: meld
+
+channels:
+   - anaconda
+   - conda-forge
+   - bioconda
+   - r
+   - kapabix
+
+dependencies:
+
+   - anaconda::ipython
+   - conda-forge::numpy
+   - conda-forge::pandas
+   - conda-forge::pygsp
+   - conda-forge::graphtools
+
+   - pip:
+      - git+git://github.com/KrishnaswamyLab/MELD.git
+      - git+git://github.com/KrishnaswamyLab/MAGIC.git#subdirectory=python
+      - git+git://github.com/KrishnaswamyLab/PHATE.git#subdirectory=Python
+      - git+git://github.com/KrishnaswamyLab/scprep.git
+      - git+git://github.com/matplotlib/cmocean.git
+

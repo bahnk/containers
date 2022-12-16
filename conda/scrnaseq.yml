@@ -1,0 +1,84 @@
+name: scrnaseq
+
+channels:
+    - anaconda
+    - conda-forge
+    - bioconda
+    - hcc
+
+dependencies:
+
+    - python=3.7
+    
+    - numpy
+    - scipy
+    - pandas
+    - biopython
+    - urllib3
+    - ipython
+    - numexpr
+    - udunits2
+    - umap-learn
+    - gdal
+    - louvain
+    - xlrd
+    - matplotlib
+    - matplotlib-venn
+    - plotly
+    - seaborn
+    - scikit-learn
+    - scikit-image
+    - statsmodels
+    - jinja2
+    - jupyter
+    - lxml
+    
+#    - pip:
+#        - git+git://github.com/KrishnaswamyLab/MAGIC.git#subdirectory=python
+#        - git+git://github.com/KrishnaswamyLab/PHATE.git#subdirectory=Python
+
+###############################################################################
+    #    - conda-forge::python=3.7
+    #
+    #    - conda-forge::numpy
+    #    - conda-forge::scipy
+    #    - conda-forge::pandas
+    #    - conda-forge::biopython
+    #    - conda-forge::urllib3
+    #    - conda-forge::ipython
+    #    - conda-forge::numexpr
+    #    - conda-forge::udunits2
+    #    - conda-forge::umap-learn
+    #    - conda-forge::gdal
+    #    - conda-forge::louvain
+    #    - conda-forge::xlrd
+    #    - conda-forge::matplotlib
+    #    - conda-forge::matplotlib-venn
+    #    - conda-forge::plotly
+    #    - conda-forge::seaborn
+    #    - conda-forge::scikit-learn
+    #    - conda-forge::scikit-image
+    #    - conda-forge::statsmodels
+    #    - conda-forge::jinja2
+    #    - conda-forge::jupyter
+    #    - anaconda::lxml
+    #
+    #    - bioconda::kallisto
+    #    - bioconda::seqtk
+    #    - bioconda::fastqc
+    #    - bioconda::snakemake
+    #    - bioconda::sra-tools
+    #    - bioconda::entrez-direct
+    #    - bioconda::parallel-fastq-dump
+    #    - bioconda::cutadapt
+    #    - bioconda::rsem
+    #    - bioconda::star
+    #    - bioconda::rseqc
+    #    - bioconda::samtools
+    #    - bioconda::multiqc
+    #    - hcc::aspera-cli
+    #
+    #    - pip:
+    #        - git+git://github.com/KrishnaswamyLab/MAGIC.git#subdirectory=python
+    #        - git+git://github.com/KrishnaswamyLab/PHATE.git#subdirectory=Python
+

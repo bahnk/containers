@@ -1,0 +1,39 @@
+name: scrnaseq
+
+channels:
+    - anaconda
+    - conda-forge
+    - bioconda
+    - hcc
+
+dependencies:
+
+    - python=3.7
+    
+    - numpy
+    - scipy
+    - pandas
+    - biopython
+    - urllib3
+    - ipython
+    - numexpr
+    - udunits2
+    - umap-learn
+    - gdal
+    - louvain
+    - xlrd
+    - matplotlib
+    - matplotlib-venn
+    - plotly
+    - seaborn
+    - scikit-learn
+    - scikit-image
+    - statsmodels
+    - jinja2
+    - jupyter
+    - lxml
+    
+    - pip:
+        - git+git://github.com/KrishnaswamyLab/MAGIC.git#subdirectory=python
+        - git+git://github.com/KrishnaswamyLab/PHATE.git#subdirectory=Python
+

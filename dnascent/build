@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo docker build --no-cache --tag bahnk/dnascent:v2 .
+sudo docker image tag bahnk/dnascent:v2 bahnk/dnascent:v2
+sudo docker login -u bahnk docker.io
+sudo docker push bahnk/dnascent:v2
+
+module load Singularity/3.6.4
+singularity pull --disable-cache dnascent.sif docker://bahnk/dnascent:v2

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#SBATCH --job-name=readfish
+#SBATCH --ntasks=4
+#SBATCH --time=00:03:00
+#SBATCH --mem-per-cpu=5G
+#SBATCH --gres=gpu:1
+#SBATCH --partition=gpu
+#SBATCH --output=slurm.out
+
+#nvidia-smi -L
+
+module load Singularity/3.6.4
+
+#singularity exec \
+#	-B /camp \
+#	--nv \
+#	readfish.sif \
+#		guppy_basecaller \
+#			--input_path data/fast5 \
+#			--save_path output \
+#			--flowcell FLO-MIN106 \
+#			--kit SQK-LSK109 \
+#			--device cuda:0
+
+# http://s3.amazonaws.com/nanopore-human-wgs/bulkfile/PLSP57501_20170308_FNFAF14035_MN16458_sequencing_run_NOTT_Hum_wh1rs2_60428.fast5

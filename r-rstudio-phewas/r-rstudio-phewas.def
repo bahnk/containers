@@ -1,0 +1,86 @@
+Bootstrap: docker
+From: ubuntu:20.04
+Stage: build
+
+%environment
+    export TZ=Europe/UK
+    export DEBIAN_FRONTEND=noninteractive
+
+%post
+    echo "Retrieve focal-fossa packages"
+    apt-get update --assume-yes
+    apt-get install -y apt-utils
+    apt install r-base --assume-yes
+    apt-get install wget
+    apt-get install gdebi-core --assume-yes
+    echo "Retrieveing R-studio image..."
+    ##add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu/focal-cran40/"
+    wget \
+    	--no-verbose \
+    	-O rstudio-sandbox.deb \
+    	"https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd64.deb"
+    echo "Installing R-studio ..."
+    gdebi -n rstudio-sandbox.deb
+    rm -f rstudio-sandbox.deb
+
+    echo "... R-studio ready"
+
+    ############################################################################
+    # install CRAN R packages
+    echo "CRAN packages"
+
+    CRAN_PACKAGES=(BiocManager
+        data.table
+        DT
+        devtools
+        dplyr
+        ggplot2
+        ggrepel
+        kable
+        kableExtra
+        knitr
+        MASS
+        meta
+        optparse
+        parallel
+        plyr
+        purrr
+        RColorBrewer
+        readr
+        reshape
+        reshape2
+        stringr
+        tibble
+        tidyr
+        tidyverse
+        plotly
+        lmtest
+        ica)
+
+   REPOSITORY="https://cran.ma.imperial.ac.uk"
+     
+   CRAN_PACKAGES_STR=""
+   for i in "${!CRAN_PACKAGES[@]}"
+   do
+   	if [[ $i == 0 ]]
+   	then
+   		CRAN_PACKAGES_STR+="\"${CRAN_PACKAGES[$i]}\""
+   	else
+   		CRAN_PACKAGES_STR+=",\"${CRAN_PACKAGES[$i]}\""
+   	fi
+   done
+   R -e "install.packages(c($CRAN_PACKAGES_STR), repo='$REPOSITORY')"
+
+   echo "All CRAN packages installed"
+############################################################################
+    # install PheWAS from github repo
+    
+   R -e "INSTALL_opts=c('--no-help', '--no-html');devtools::install_github('PheWAS/PheWAS')"
+
+%labels
+
+    Author schneid@crick.ac.uk
+    Version v0.0.1
+
+%help
+    This is a container we used to run R, specificaly PheWAS and R-studio
